@@ -15,7 +15,7 @@ class IntentAgent(BaseAgent):
         # Determine intent based on keywords
         if any(kw in query_lower for kw in ["explain", "why", "cause", "reason", "understand"]):
             intent = "EXPLAIN"
-        elif any(kw in query_lower for kw in ["analyze", "calculation", "metric", "measure", "value", "oee", "yield", "sum", "average", "total", "count"]):
+        elif any(kw in query_lower for kw in ["analyze", "calculation", "metric", "measure", "value", "oee", "yield", "sum", "average", "total", "count", "how many", "failed", "fail", "number"]):
             intent = "ANALYZE"
         elif any(kw in query_lower for kw in ["status", "health", "condition", "how is"]):
             intent = "STATUS"
