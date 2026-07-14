@@ -3,6 +3,7 @@ from agents.data_agent import DataAgent
 from agents.domain_agent import DomainAgent
 from agents.explainability_agent import ExplainabilityAgent
 from agents.intent_agent import IntentAgent
+from agents.planner_agent import PlannerAgent
 from agents.response_agent import ResponseAgent
 from agents.supervisor_agent import SupervisorAgent
 from models.workflow_state import WorkflowState
@@ -16,6 +17,7 @@ class WorkflowNodes:
         """Initializes all cooperative agents, optionally injecting an LLM Service."""
         self.supervisor = SupervisorAgent()
         self.intent = IntentAgent()
+        self.planner = PlannerAgent()
         self.domain = DomainAgent()
         self.data = DataAgent()
         self.analytics = AnalyticsAgent()
@@ -42,6 +44,9 @@ class WorkflowNodes:
 
     def intent_node(self, state: WorkflowState) -> dict:
         return self._run_agent(self.intent, state)
+
+    def planner_node(self, state: WorkflowState) -> dict:
+        return self._run_agent(self.planner, state)
 
     def domain_node(self, state: WorkflowState) -> dict:
         return self._run_agent(self.domain, state)

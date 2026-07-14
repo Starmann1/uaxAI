@@ -58,6 +58,17 @@ class AnalyticsResult(BaseModel):
     evidence: EvidenceReference = Field(..., description="Provenance information of analytics results")
 
 
+class ExecutionPlan(BaseModel):
+    """Schema for the deterministic multi-agent execution plan."""
+    intent: str = Field(..., description="Classified intent of the request")
+    required_capabilities: List[str] = Field(default_factory=list, description="List of capabilities required for execution")
+    metric_id: Optional[str] = Field(None, description="Resolved metric ID if applicable")
+    requires_data: bool = Field(default=False, description="True if DataAgent needs to retrieve records")
+    requires_analytics: bool = Field(default=False, description="True if AnalyticsAgent needs to execute aggregates")
+    explanation_required: bool = Field(default=False, description="True if ExplainabilityAgent needs to run")
+    unsupported_reason: Optional[str] = Field(None, description="Explanation if the request is not supported")
+
+
 class WorkflowState(BaseModel):
     """State model tracking the state of the multi-agent cooperative loop."""
     query: str = Field(..., description="The original user query")
@@ -77,3 +88,6 @@ class WorkflowState(BaseModel):
     requested_filters: Dict[str, Any] = Field(default_factory=dict, description="Dictionary of filters applied during analytics")
     execution_trace: Optional[ExecutionTrace] = Field(default=None, description="Detailed trace events for all agents")
     analytics_result: Optional[AnalyticsResult] = Field(default=None, description="Structured query analytics result")
+    
+    # New Phase 3 Planner Field
+    execution_plan: Optional[ExecutionPlan] = Field(default=None, description="Deterministic multi-agent execution plan")
