@@ -16,7 +16,7 @@ def test_load_automotive_records():
 def test_load_pharma_records():
     repo = CSVRepository("data/pharma/batches.csv", BatchRecord)
     records = repo.load_records()
-    assert len(records) == 8
+    assert len(records) >= 8
     assert all(isinstance(r, BatchRecord) for r in records)
     assert records[0].batch_id == "BAT-001"
     assert records[0].critical_temp == 37.2

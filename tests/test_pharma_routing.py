@@ -18,7 +18,8 @@ def test_pharma_average_yield_workflow():
     result = workflow.invoke({
         "query": "What is the average batch yield?",
         "industry": "pharma",
-        "requested_metric_id": "average_batch_yield"
+        "requested_metric_id": "average_batch_yield",
+        "requested_filters": {"reactor_id": "Bioreactor Alpha"}
     })
     
     assert result["intent"] == "ANALYZE"
