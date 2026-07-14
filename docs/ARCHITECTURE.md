@@ -61,7 +61,7 @@ sequenceDiagram
     Graph->>Data: Load CSV records
     Note over Data: Resolves schema from SchemaRegistry
     Graph->>Analytics: Calculate aggregates
-    Note over Analytics: Calculates filtered average/sum safely
+    Note over Analytics: Calculates operations safely
     Graph->>Explain: Generate audit trail
     Note over Explain: Compiles agent timing & evidence reference
     Graph->>Response: Assemble final response
