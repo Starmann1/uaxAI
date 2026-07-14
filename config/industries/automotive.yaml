@@ -12,3 +12,4 @@ entity_list:
   - "Weld Line A"
 metric: "Overall Equipment Effectiveness (OEE)"
 dataset_reference: "data/automotive/production.csv"
+record_schema: "automotive_production"

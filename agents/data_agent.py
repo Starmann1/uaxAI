@@ -1,12 +1,12 @@
 from agents.base_agent import BaseAgent
-from models.data_models import BatchRecord, ProductionRecord
 from models.workflow_state import WorkflowState
 from repositories.csv_repository import CSVRepository
 from services.config_loader import load_industry_config
+from services.schema_registry import SchemaRegistry
 
 
 class DataAgent(BaseAgent):
-    """Data Agent: Automatically loads data from the configured industry CSV file."""
+    """Data Agent: Automatically loads data from the configured industry CSV file using the registered schema."""
     
     @property
     def name(self) -> str:
@@ -16,13 +16,11 @@ class DataAgent(BaseAgent):
         # Load the configuration to determine data path
         config = load_industry_config(state.industry)
         
-        # Decide record model structure based on industry
-        if state.industry == "automotive":
-            record_class = ProductionRecord
-        elif state.industry == "pharma":
-            record_class = BatchRecord
-        else:
-            raise ValueError(f"Unknown industry for data repository loading: '{state.industry}'")
+        if not config.record_schema:
+            raise ValueError(f"No record schema configured for industry '{state.industry}'")
+            
+        # Resolve record model structure from registry
+        record_class = SchemaRegistry.get_schema(config.record_schema)
             
         # Instantiate repository and load records
         repo = CSVRepository(config.dataset_reference, record_class)
