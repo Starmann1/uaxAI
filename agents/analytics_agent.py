@@ -1,9 +1,11 @@
 from agents.base_agent import BaseAgent
 from models.workflow_state import AnalyticsOutput, WorkflowState
+from services.analytics_engine import AnalyticsEngine
+from services.config_loader import load_industry_config
 
 
 class AnalyticsAgent(BaseAgent):
-    """Analytics Agent: Executes a single aggregate calculation (sum) over the retrieved records."""
+    """Analytics Agent: Executes aggregate calculations over records using AnalyticsEngine."""
     
     @property
     def name(self) -> str:
@@ -13,23 +15,39 @@ class AnalyticsAgent(BaseAgent):
         if not state.retrieved_data:
             raise ValueError("No data records available for analytics execution.")
             
-        record_count = len(state.retrieved_data)
+        # Load config to get allowed filters and metric definitions
+        config = load_industry_config(state.industry)
         
-        # Industry-specific single sum aggregation operation
-        if state.industry == "automotive":
-            metric_name = "Total Units Produced"
-            # sum units_produced
-            total_sum = sum(float(r.units_produced) for r in state.retrieved_data)
-        elif state.industry == "pharma":
-            metric_name = "Sum of Batch Yield Percentages"
-            # sum batch_yield_pct
-            total_sum = sum(float(r.batch_yield_pct) for r in state.retrieved_data)
-        else:
-            raise ValueError(f"Unknown industry context: '{state.industry}'")
+        # Determine metric to use
+        metric_id = state.requested_metric_id
+        if not metric_id:
+            # Fallback to the first metric if none requested (keeps backward compatibility)
+            if config.metrics:
+                metric_id = config.metrics[0].metric_id
+            else:
+                raise ValueError(f"No metrics configured for industry '{state.industry}'")
+                
+        # Find the metric definition
+        metric_def = next((m for m in config.metrics if m.metric_id == metric_id), None)
+        if not metric_def:
+            raise ValueError(f"Metric '{metric_id}' is not configured for industry '{state.industry}'")
             
-        state.analytics_output = AnalyticsOutput(
-            metric_name=metric_name,
-            result_value=total_sum,
-            record_count=record_count
+        # Perform calculation
+        result = AnalyticsEngine.calculate(
+            records=state.retrieved_data,
+            metric=metric_def,
+            requested_filters=state.requested_filters,
+            allowed_filters=config.allowed_filters,
+            dataset_reference=config.dataset_reference
         )
+        
+        state.analytics_result = result
+        
+        # Populate legacy output for compatibility with legacy tests
+        state.analytics_output = AnalyticsOutput(
+            metric_name=result.metric_name,
+            result_value=result.result_value,
+            record_count=result.record_count
+        )
+        
         return state

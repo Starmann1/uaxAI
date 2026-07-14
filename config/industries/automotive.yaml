@@ -13,3 +13,14 @@ entity_list:
 metric: "Overall Equipment Effectiveness (OEE)"
 dataset_reference: "data/automotive/production.csv"
 record_schema: "automotive_production"
+supported_capabilities:
+  - "oee"
+  - "throughput"
+  - "downtime"
+allowed_filters:
+  - "line_id"
+metrics:
+  - metric_id: "total_units_produced"
+    operation: "sum"
+    target_field: "units_produced"
+    display_name: "Total Units Produced"
