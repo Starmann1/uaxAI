@@ -1,0 +1,14 @@
+industry_name: "automotive"
+display_name: "Automotive Manufacturing"
+terminology:
+  - "Overall Equipment Effectiveness (OEE)"
+  - "Unplanned Downtime"
+  - "Cycle Time"
+  - "Production Throughput"
+entity_list:
+  - "Assembly Line 1"
+  - "Paint Shop"
+  - "Body Shop"
+  - "Weld Line A"
+metric: "Overall Equipment Effectiveness (OEE)"
+dataset_reference: "data/automotive/production.csv"

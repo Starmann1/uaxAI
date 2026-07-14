@@ -1,0 +1,14 @@
+industry_name: "pharma"
+display_name: "Pharmaceutical Manufacturing"
+terminology:
+  - "Batch Yield Percentage"
+  - "Critical Process Parameter (CPP)"
+  - "Critical Quality Attribute (CQA)"
+  - "Autoclave Sterilization Time"
+entity_list:
+  - "Bioreactor Alpha"
+  - "Centrifuge Beta"
+  - "Autoclave Gamma"
+  - "Formulation Unit"
+metric: "Batch Yield Percentage"
+dataset_reference: "data/pharma/batches.csv"

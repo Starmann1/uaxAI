@@ -1,0 +1,9 @@
+timestamp,batch_id,reactor_id,critical_temp,critical_ph,batch_yield_pct,quality_status
+2026-07-12T08:00:00Z,BAT-001,Bioreactor Alpha,37.2,7.1,95.4,Pass
+2026-07-12T09:00:00Z,BAT-002,Bioreactor Alpha,38.5,6.8,88.1,Pass
+2026-07-12T10:00:00Z,BAT-003,Bioreactor Alpha,36.9,7.3,96.8,Pass
+2026-07-12T11:00:00Z,BAT-004,Bioreactor Alpha,39.1,6.5,74.2,Fail
+2026-07-12T12:00:00Z,BAT-005,Bioreactor Alpha,37.0,7.0,94.9,Pass
+2026-07-12T13:00:00Z,BAT-006,Bioreactor Alpha,37.3,7.2,93.1,Pass
+2026-07-12T14:00:00Z,BAT-007,Bioreactor Alpha,36.5,6.9,97.2,Pass
+2026-07-12T15:00:00Z,BAT-008,Bioreactor Alpha,38.8,7.5,81.5,Fail
