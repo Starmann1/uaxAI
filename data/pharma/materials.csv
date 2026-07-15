@@ -1,0 +1,4 @@
+material_code,brand_name,generic_name,manufacturer,formulation,strength,schedule_category,storage_conditions,reorder_level,is_active,preferred_supplier_id,material_type,unit_of_measure
+RM-001,Paracetamol API,Paracetamol,Global API Corp,Powder,99%,Unscheduled,Room Temperature,500,True,1.0,RAW_MATERIAL,KG
+PM-001,Blister Pack Type A,PVC/Alu,MediPack Solutions,Packaging,N/A,Unscheduled,Room Temperature,10000,True,2.0,PACKAGING,UNITS
+FG-001,Paracure 500mg,Paracetamol Tablets,Internal,Tablet,500mg,OTC,Room Temperature,100,True,,FINISHED_GOOD,BOXES

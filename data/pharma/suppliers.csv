@@ -1,0 +1,3 @@
+supplier_id,supplier_name,contact_person,address,email,phone_number,supplier_status
+1,Global API Corp,John Smith,123 API Ave,john@globalapi.com,+1234567890,APPROVED
+2,MediPack Solutions,Alice Jones,456 Pack St,alice@medipack.com,+0987654321,APPROVED

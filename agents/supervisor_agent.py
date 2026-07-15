@@ -1,5 +1,6 @@
 from agents.base_agent import BaseAgent
 from models.workflow_state import WorkflowState
+from services.config_loader import list_industries
 
 
 class SupervisorAgent(BaseAgent):
@@ -13,8 +14,12 @@ class SupervisorAgent(BaseAgent):
         if not state.query or not state.query.strip():
             raise ValueError("Query cannot be empty.")
             
-        if not state.industry or state.industry.strip() not in ("automotive", "pharma"):
-            raise ValueError(f"Invalid or empty industry value: '{state.industry}'")
+        allowed_industries = list_industries()
+        if not state.industry or state.industry.strip() not in allowed_industries:
+            raise ValueError(
+                f"Invalid or empty industry value: '{state.industry}'. "
+                f"Must be one of: {allowed_industries}"
+            )
             
         state.status = "VALIDATED"
         return state

@@ -1,0 +1,5 @@
+location_code,location_name,description,capacity
+WH-MAIN,Main Warehouse,Primary storage location,10000
+QC-HOLD,QC Hold Area,Quarantine location for quality checks,2000
+REJECTED,Rejected Materials,Disposal location for rejected goods,1000
+MFG-01,Manufacturing Floor 01,Active production floor,5000

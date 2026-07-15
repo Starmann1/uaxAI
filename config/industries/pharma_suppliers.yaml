@@ -1,0 +1,27 @@
+industry_name: "pharma_suppliers"
+display_name: "Pharmaceutical Suppliers Master"
+terminology:
+  - "Approved Supplier Status"
+  - "Drug License Verification"
+  - "Supplier Audit Registry"
+entity_list:
+  - "Global API Corp"
+  - "MediPack Solutions"
+metric: "Suppliers"
+dataset_reference: "data/pharma/suppliers.csv"
+record_schema: "pharma_supplier"
+supported_capabilities:
+  - "count"
+  - "status"
+allowed_filters:
+  - "supplier_id"
+  - "supplier_status"
+metrics:
+  - metric_id: "total_suppliers"
+    operation: "count"
+    display_name: "Total Suppliers Count"
+  - metric_id: "approved_suppliers"
+    operation: "count"
+    filter_field: "supplier_status"
+    filter_value: "APPROVED"
+    display_name: "Approved Suppliers Count"

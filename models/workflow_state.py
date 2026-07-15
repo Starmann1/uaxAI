@@ -3,7 +3,15 @@ from typing import Any, Dict, List, Optional, Union
 
 from pydantic import BaseModel, Field
 
-from models.data_models import BatchRecord, ProductionRecord
+from models.data_models import (
+    BatchRecord,
+    ProductionRecord,
+    SupplierRecord,
+    MaterialRecord,
+    LocationRecord,
+    DeviationRecord,
+    CapaRecord,
+)
 
 
 class AnalyticsOutput(BaseModel):
@@ -76,7 +84,17 @@ class WorkflowState(BaseModel):
     intent: Optional[str] = Field(default=None, description="The classified query intent")
     status: Optional[str] = Field(default=None, description="Current workflow status set by agents")
     domain_context: Optional[List[str]] = Field(default=None, description="Key industry-specific terminology loaded from configuration")
-    retrieved_data: Optional[Union[List[ProductionRecord], List[BatchRecord]]] = Field(default=None, description="Loaded database records")
+    retrieved_data: Optional[
+        Union[
+            List[ProductionRecord],
+            List[BatchRecord],
+            List[SupplierRecord],
+            List[MaterialRecord],
+            List[LocationRecord],
+            List[DeviationRecord],
+            List[CapaRecord],
+        ]
+    ] = Field(default=None, description="Loaded database records")
     analytics_output: Optional[AnalyticsOutput] = Field(default=None, description="Legacy aggregate computations results")
     explainability_output: Optional[ExplainabilityOutput] = Field(default=None, description="Legacy formatted audit trace explanation")
     final_response: Optional[str] = Field(default=None, description="Final response answer text")

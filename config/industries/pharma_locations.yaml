@@ -1,0 +1,26 @@
+industry_name: "pharma_locations"
+display_name: "Pharmaceutical Storage Locations"
+terminology:
+  - "Warehouse Capacity"
+  - "Storage Zone Layout"
+  - "Active Manufacturing Floor"
+entity_list:
+  - "WH-MAIN"
+  - "QC-HOLD"
+  - "REJECTED"
+  - "MFG-01"
+metric: "Locations"
+dataset_reference: "data/pharma/locations.csv"
+record_schema: "pharma_location"
+supported_capabilities:
+  - "count"
+allowed_filters:
+  - "location_code"
+metrics:
+  - metric_id: "total_locations"
+    operation: "count"
+    display_name: "Total Locations Count"
+  - metric_id: "warehouse_capacity_sum"
+    operation: "sum"
+    target_field: "capacity"
+    display_name: "Total Warehouse Capacity"

@@ -1,0 +1,3 @@
+id,deviation_id,action_plan,due_date,status
+1,1,Recalibrate heating jacket control loops and inspect steam valve seals.,2026-08-01,OPEN
+2,3,Perform complete preventative maintenance on MFG-01 reactor thermostat.,2026-07-20,OPEN

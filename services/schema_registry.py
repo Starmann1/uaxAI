@@ -2,7 +2,15 @@ from typing import Dict, Type
 
 from pydantic import BaseModel
 
-from models.data_models import BatchRecord, ProductionRecord
+from models.data_models import (
+    BatchRecord,
+    ProductionRecord,
+    SupplierRecord,
+    MaterialRecord,
+    LocationRecord,
+    DeviationRecord,
+    CapaRecord,
+)
 
 
 class SchemaRegistryError(Exception):
@@ -16,6 +24,11 @@ class SchemaRegistry:
     _registry: Dict[str, Type[BaseModel]] = {
         "pharmaceutical_batch": BatchRecord,
         "automotive_production": ProductionRecord,
+        "pharma_supplier": SupplierRecord,
+        "pharma_material": MaterialRecord,
+        "pharma_location": LocationRecord,
+        "pharma_deviation": DeviationRecord,
+        "pharma_capa": CapaRecord,
     }
     
     @classmethod

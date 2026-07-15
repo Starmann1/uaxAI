@@ -1,0 +1,4 @@
+id,batch_number,description,criticality,status
+1,BAT-004,Critical temperature exceeded 39.0C during fermentation.,MAJOR,INVESTIGATING
+2,BAT-008,pH level dropped below 6.6 limit during bioreaction.,MAJOR,OPEN
+3,PB-1004,Critical temperature reached 39.0C during extraction.,CRITICAL,OPEN

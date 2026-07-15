@@ -1,0 +1,27 @@
+industry_name: "pharma_capas"
+display_name: "Pharmaceutical Corrective Actions (CAPA)"
+terminology:
+  - "Corrective and Preventive Action (CAPA)"
+  - "Action Plan Compliance"
+  - "Preventative Resolution Due Date"
+entity_list:
+  - "1"
+  - "2"
+metric: "CAPA Records"
+dataset_reference: "data/pharma/capas.csv"
+record_schema: "pharma_capa"
+supported_capabilities:
+  - "count"
+  - "status"
+allowed_filters:
+  - "deviation_id"
+  - "status"
+metrics:
+  - metric_id: "total_capas"
+    operation: "count"
+    display_name: "Total CAPA Count"
+  - metric_id: "open_capas"
+    operation: "count"
+    filter_field: "status"
+    filter_value: "OPEN"
+    display_name: "Open CAPA Count"
