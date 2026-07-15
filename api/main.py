@@ -1,5 +1,8 @@
 import logging
 from typing import List
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware

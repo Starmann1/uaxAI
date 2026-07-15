@@ -1,6 +1,9 @@
 import os
 import sys
 import argparse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from graph.workflow import create_workflow
 from models.llm_models import LLMRequest, LLMResponse
