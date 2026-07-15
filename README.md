@@ -1,6 +1,6 @@
 # UAXAI: Universal Agentic Explainable AI Platform
 
-UAXAI is a configuration-driven, API-first, multi-agent explainable AI platform. This implementation is an internship-ready v0.2 MVP demonstrating a routed multi-agent workflow for Pharmaceutical batch manufacturing analytics.
+UAXAI is a configuration-driven, API-first, multi-agent explainable AI platform. This implementation is a v0.2 MVP demonstrating a routed multi-agent workflow for Pharmaceutical batch manufacturing analytics.
 
 ---
 

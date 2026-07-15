@@ -1,6 +1,6 @@
 # UAXAI Platform Limitations & Deferred Features
 
-The UAXAI Pharmaceutical MVP is designed as a focused, high-integrity architecture validation. The following features are explicitly out of scope for the current v0.2 internship submission and have been deferred:
+The UAXAI Pharmaceutical MVP is designed as a focused, high-integrity architecture validation. The following features are explicitly out of scope for the current v0.2 project submission and have been deferred:
 
 ## 1. Out-of-Scope Features
 * **Persistence & Databases**: The platform reads exclusively from local flat CSV files. No relational databases (e.g., PostgreSQL, SQLite), ORMs (SQLAlchemy), migrations (Alembic), or document stores are implemented.

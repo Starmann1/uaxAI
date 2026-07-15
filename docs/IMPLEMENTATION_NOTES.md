@@ -25,4 +25,4 @@ API. They are intentionally not part of Phase 0.
 
 PostgreSQL, RAG, vector search, authentication, RBAC, multi-tenancy, Redis,
 Docker, MCP, background workers, and production telemetry are out of scope for
-the internship MVP.
+the v0.2 MVP.
