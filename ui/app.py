@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from graph.workflow import create_workflow
 from models.llm_models import LLMRequest, LLMResponse
 from services.base_llm_service import BaseLLMService
+from services.config_loader import list_industries
 
 
 class MockLLMService(BaseLLMService):
@@ -39,10 +40,11 @@ st.subheader("Core Architecture Demonstration (CAD)")
 # Sidebar Settings
 st.sidebar.header("Configuration Panel")
 
+allowed_industries = list_industries()
 industry = st.sidebar.selectbox(
     "Switch Industry Context:",
-    options=["automotive", "pharma"],
-    format_func=lambda x: "Automotive Manufacturing" if x == "automotive" else "Pharmaceutical Manufacturing"
+    options=allowed_industries,
+    format_func=lambda x: x.replace("_", " ").title()
 )
 
 # Detect API Key in Environment
