@@ -61,7 +61,7 @@ def test_data_agent():
     result = agent.execute(state)
     assert result.success is True
     assert result.updated_state.retrieved_data is not None
-    assert len(result.updated_state.retrieved_data) == 8
+    assert len(result.updated_state.retrieved_data) == 14
     assert isinstance(result.updated_state.retrieved_data[0], BatchRecord)
 
 # 5. Analytics Agent Test

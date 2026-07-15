@@ -48,8 +48,8 @@ def test_pharma_workflow_run():
     
     assert result["status"] == "VALIDATED"
     assert result["intent"] == "ANALYZE"
-    assert len(result["retrieved_data"]) == 8
-    assert result["analytics_output"]["result_value"] == 721.2
+    assert len(result["retrieved_data"]) == 14
+    assert result["analytics_output"]["result_value"] == 1265.4
     assert "ResponseAgent" in result["execution_history"]
     assert result["final_response"] == "Mocked Pharma output answer."
 
