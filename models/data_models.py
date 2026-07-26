@@ -37,7 +37,7 @@ class MaterialRecord(BaseModel):
     generic_name: str = Field(..., description="Generic pharmaceutical name")
     manufacturer: str = Field(..., description="Manufacturer name")
     formulation: str = Field(..., description="Formulation form")
-    strength: str = Field(..., description="Strength of the active ingredient")
+    strength: Optional[str] = Field(None, description="Strength of the active ingredient")
     schedule_category: str = Field(..., description="Schedule category")
     storage_conditions: str = Field(..., description="Storage condition details")
     reorder_level: int = Field(..., description="Reorder stock level")
