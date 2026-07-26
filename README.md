@@ -1,5 +1,16 @@
 # UAXAI: Universal Agentic Explainable AI Platform
 
+> [!WARNING]
+> ### ⚠️ Deprecation & Evolution Notice
+> **This repository (`uaxAI`) is now deprecated and archived.**
+> 
+> **UAXAI** served as the baseline foundation and proof-of-concept for multi-agent explainable AI routing, structured domain configuration, and mathematical evidence provenance. The architectural lessons and core principles established in this codebase have directly evolved into **CAPA Copilot** — an Explainable Multi-Agent Deviation Investigator for Pharma Quality Systems.
+> 
+> **CAPA Copilot** builds upon this foundation by integrating:
+> * **Automated Cross-System Evidence Retrieval:** Pulling batch records, lab results, maintenance logs, and material lots automatically across **MES**, **LIMS**, **CMMS**, and **ERP**.
+> * **Structured 6M Ishikawa Root Cause Analysis (RCA):** Systematically evaluating all six failure categories (Man, Machine, Method, Material, Measurement, Environment) to eliminate "human error" cop-outs.
+> * **21 CFR Part 11 Compliant Evidence Traces:** Generating machine-readable `ExplainabilityTrace` schemas with human review and e-signature gates before QA sign-off.
+
 **UAXAI** is a configuration-driven, API-first, multi-agent explainable AI platform. Designed to be fully industry-agnostic, this implementation focuses on the **pharmaceutical manufacturing and supply chain management (SCM)** vertical to streamline batch quality reviews, deviation evidence collection, and process audits.
 
 ---

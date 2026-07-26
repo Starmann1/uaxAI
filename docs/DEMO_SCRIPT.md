@@ -1,6 +1,6 @@
 # UAXAI Demo Script
 
-Use the following HTTP requests to demonstrate the capabilities and dynamic routing of the UAXAI Pharmaceutical MVP.
+Use the following HTTP requests to demonstrate the capabilities and dynamic routing of the UAXAI Pharmaceutical Platform.
 
 Ensure the server is running first:
 ```powershell
